@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="smv.lovearthstudio.com.svmpro_v2.fragment.SettingFragment">
+
+    <TextView
+        android:id="@+id/tv_select_sensorhz"
+        style="@style/TvSelectStyle"
+        android:text="传感器采样频率:32HZ" />
+
+    <View style="@style/Line" />
+
+    <TextView
+        android:id="@+id/tv_select_features"
+        style="@style/TvSelectStyle"
+        android:text="当前特征数:19" />
+
+    <View style="@style/Line" />
+
+</LinearLayout>

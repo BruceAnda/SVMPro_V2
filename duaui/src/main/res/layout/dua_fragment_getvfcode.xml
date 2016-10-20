@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.lovearthstudio.intlphoneinput.IntlPhoneInput
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dua_register_input_phone" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <EditText
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/dua_prompt_vf_code"
+                android:gravity="center_vertical"
+                android:paddingLeft="10sp"
+                android:background="@null"
+                android:singleLine="true"
+                android:textSize="@dimen/input_text_size"
+                android:id="@+id/dua_register_input_vf_code" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/border_line_color" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/dua_button_get_vf_code"
+            android:gravity="center_vertical"
+            android:background="@drawable/btn_bg_light_green"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:paddingLeft="10sp"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textSize="@dimen/input_text_size"
+            android:id="@+id/dua_register_button_get_vf_code"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/dua_register_button_next_step"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_bg_light_green"
+        android:text="@string/dua_button_next_step"
+        android:textStyle="bold" />
+
+</LinearLayout>

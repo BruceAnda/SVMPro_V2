@@ -1,0 +1,27 @@
+<resources>
+    <string name="dua_app_name">DuaSdk</string>
+    <string name="dua_prompt_tel">手机号</string>
+    <string name="dua_prompt_pwd">请输入6位以上密码</string>
+    <string name="dua_prompt_newpwd">请输入6位以上的新密码</string>
+    <string name="dua_prompt_repwd">请再输入一次密码</string>
+    <string name="dua_prompt_renewpwd">请再次输入新密码</string>
+    <string name="dua_prompt_vf_code">手机短信验证码</string>
+    <string name="dua_button_get_vf_code">获取验证码</string>
+    <string name="dua_button_last_step">上一步</string>
+    <string name="dua_button_next_step">下一步</string>
+    <string name="dua_button_complete">完成</string>
+    <string name="dua_action_sign_in">登录</string>
+    <string name="dua_action_sign_up">注册账号</string>
+    <string name="dua_action_ensure">确定</string>
+    <string name="dua_action_forget_pwd">忘记密码</string>
+    <string name="dua_prompt_sex">您是...?</string>
+    <string name="dua_prompt_laststep">还差一步</string>
+    <string name="dua_prompt_nickname">给自己起个昵称吧~15个字以内哦</string>
+    <string name="dua_button_pick">选择</string>
+    <string name="confirm">确定</string>
+    <string name="dua_prompt_birthday">您的出生日期</string>
+    <string name="dua_prompt_birthday_example">1984年8月8日</string>
+    <string name="dua_action_cancel">取消</string>
+    <string name="radio_male">男</string>
+    <string name="radio_female">女</string>
+</resources>

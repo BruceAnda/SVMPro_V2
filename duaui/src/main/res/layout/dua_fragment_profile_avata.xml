@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:singleLine="true"
+        android:textSize="30sp"
+        android:text="设置头像"/>
+    <ImageView
+        android:id="@+id/dua_register_iv_avatar"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:src="@drawable/dua_avatar_default" />
+
+    <!--<Button-->
+        <!--android:id="@+id/dua_register_button_pick_birthday"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:background="@drawable/btn_bg_light_green"-->
+        <!--android:text="@string/confirm"-->
+        <!--android:textSize="@dimen/label_text_size"-->
+        <!--android:textStyle="bold" />-->
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/btn_bg_light_green"
+            android:text="@string/dua_button_last_step"
+            android:id="@+id/dua_register_button_last_step"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_bg_light_green"
+            android:text="@string/dua_button_next_step"
+            android:id="@+id/dua_register_button_next_step"/>
+    </RelativeLayout>
+</LinearLayout>

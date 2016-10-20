@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="theme_color">#00BC00</color>
+    <color name="common_top_bar_blue">#3F51B5</color>
+    <color name="link_color">#3F51B5</color>
+
+
+    <color name="hint_text_color">#C4C4C4</color>
+    <!--微信登陆界面的标签字体0.纯黑-->
+    <color name="label_text_color">#000</color>
+    <color name="border_line_color">#DCDCDC</color>
+
+
+    <color name="dua_cl_normal">#FBE3CD</color>
+    <color name="dua_cl_pressed">#F4D7B9</color>
+</resources>

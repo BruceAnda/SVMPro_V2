@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="smv.lovearthstudio.com.svmpro_v2.fragment.SimpingFragment">
+
+    <TextView
+        android:id="@+id/tv_simple_action"
+        style="@style/TvSelectStyle"
+        android:text="action:Unknown" />
+
+    <View style="@style/Line" />
+
+    <TextView
+        android:id="@+id/tv_simple_position"
+        style="@style/TvSelectStyle"
+        android:text="postion:Unknown" />
+
+    <View style="@style/Line" />
+
+    <TextView
+        android:id="@+id/tv_simple_train"
+        style="@style/TvSelectStyle"
+        android:text="样本文件名称:train" />
+
+    <View style="@style/Line" />
+
+    <TextView
+        android:id="@+id/tv_simple_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="10dp"
+        android:text="拖动设置采样数量:当前100" />
+
+    <SeekBar
+        android:id="@+id/sb_simple_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_train_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/iv_simple_start"
+        style="@style/Start" />
+</LinearLayout>

@@ -1,0 +1,54 @@
+package smv.lovearthstudio.com.svmpro_v2.activity.other.addfilenameactivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.AdapterView;
+
+import smv.lovearthstudio.com.svmpro_v2.activity.other.addfilenameactivity.base.BaseAddFileNameActivity;
+
+import static smv.lovearthstudio.com.svmpro_v2.util.Util.CODE_RESULT_OK;
+import static smv.lovearthstudio.com.svmpro_v2.util.Util.FILE_SHAREDPERFERENCES;
+
+/**
+ *
+ */
+public class RangeFileNameActivity extends BaseAddFileNameActivity {
+
+    private String rangeFileNames;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void initSharedPerferences() {
+        mSharedPreferences = getSharedPreferences(FILE_SHAREDPERFERENCES, MODE_PRIVATE);
+        rangeFileNames = "rangeFileNames";
+        mFileNamesStr = mSharedPreferences.getString(rangeFileNames, "");
+        if (!mFileNamesStr.contains("range")) {
+            mSharedPreferences.edit().putString(rangeFileNames, "range,").commit();
+            mFileNamesStr = mSharedPreferences.getString(rangeFileNames, "");
+        }
+    }
+
+    @Override
+    public void add(View view) {
+        String fileName = mEtFileName.getText().toString().trim();
+        if (!TextUtils.isEmpty(fileName)) {
+            mFileNamesStr += (fileName + ",");
+            mSharedPreferences.edit().putString(rangeFileNames, mFileNamesStr).commit();
+            setData();
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent();
+        intent.putExtra("rangeFileName", mFileNameArr[position]);
+        setResult(CODE_RESULT_OK, intent);
+        finish();
+    }
+}

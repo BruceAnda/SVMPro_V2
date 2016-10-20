@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="smv.lovearthstudio.com.svmpro_v2.fragment.TrainFragment">
+
+    <TextView
+        android:id="@+id/tv_select_train_file_name"
+        style="@style/TvSelectStyle"
+        android:text="样本文件名称:train" />
+
+    <View style="@style/Line" />
+
+    <TextView
+        android:id="@+id/tv_select_range_file_name"
+        style="@style/TvSelectStyle"
+        android:text="归一化文件名称:range" />
+
+    <View style="@style/Line" />
+
+    <TextView
+        android:id="@+id/tv_select_sacle_file_name"
+        style="@style/TvSelectStyle"
+        android:text="归一化后的样本文件名称:scale" />
+
+    <View style="@style/Line" />
+
+    <TextView
+        android:id="@+id/tv_select_model_file_name"
+        style="@style/TvSelectStyle"
+        android:text="模型文件名称:model" />
+
+    <View style="@style/Line" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_accuracy"/>
+
+    <ImageView
+        android:id="@+id/iv_train_start"
+        style="@style/Start" />
+</LinearLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/popup_bg"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/cancel_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/popup_anima"></View>
+
+
+    <RelativeLayout
+        android:id="@+id/popup_anima"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/white"
+        android:paddingBottom="@dimen/small_vertical_margin"
+        android:paddingLeft="@dimen/small_horizontal_margin"
+        android:paddingRight="@dimen/small_horizontal_margin"
+        android:paddingTop="@dimen/small_vertical_margin">
+
+        <EditText
+            android:id="@+id/comment_editText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="#f7f7f7"
+            android:gravity="left|top"
+            android:padding="5dp"
+            android:textSize="16sp" />
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/comments_tools_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/comment_editText"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/small_vertical_margin"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="@drawable/btn_bg_light_green"
+                android:text="取消" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btn_commit"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="@drawable/btn_bg_light_green"
+                android:text="确定" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

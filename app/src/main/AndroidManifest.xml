@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="smv.lovearthstudio.com.svmpro_v2">
+
+    <!-- 写文件的权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".app.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.main.MainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.splash.SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.other.actionandpositionlist.ActionListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.other.actionandpositionlist.PositionListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.other.addfilenameactivity.TrainFileNameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.other.addfilenameactivity.RangeFileNameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.other.addfilenameactivity.ScaleFileNameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.other.addfilenameactivity.ModelFileNameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.other.filenamelistactivity.TrainFileListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.other.filenamelistactivity.ModelFileListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.other.filenamelistactivity.RangeFileListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.other.filenamelistactivity.base.BaseFileListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.other.setting.SensitActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.other.setting.FeaturesListActivity"
+            android:screenOrientation="portrait"></activity>
+    </application>
+
+</manifest>

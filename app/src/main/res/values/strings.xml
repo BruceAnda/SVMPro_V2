@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">人工智能</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="simping">采样</string>
+    <string name="train">训练</string>
+    <string name="forecast">预测</string>
+    <string name="setting">设置</string>
+
+    <array name="Actions">
+        <item>Unknown</item>
+        <item>Still</item>
+        <item>Petty action</item>
+        <item>Walking</item>
+        <item>Running</item>
+        <item>Climbing up stairs</item>
+        <item>Climbing down stairs</item>
+        <item>Riding up escalator</item>
+        <item>Riding down escalator</item>
+        <item>Riding up elevator</item>
+        <item>Riding down elevator</item>
+        <item>Sitting &amp; relaxing</item>
+        <item>WatchingTV</item>
+        <item>Stretching</item>
+        <item>Scrubbing</item>
+        <item>Folding laundry</item>
+        <item>Brushing teeth</item>
+        <item>Strength-training</item>
+        <item>Vacuuming</item>
+        <item>Lying down &amp; relaxing</item>
+        <item>Sit-ups</item>
+    </array>
+
+    <array name="Positions">
+        <item>Unknown</item>
+        <item>Hand Fixed</item>
+        <item>Hand Swing</item>
+        <item>Pant Pocket</item>
+        <item>Back Pocket</item>
+        <item>Coat Pocket</item>
+        <item>Cheset Pocket</item>
+        <item>Shoulder Bag</item>
+        <item>Arm Bag</item>
+        <item>Hand Bag</item>
+        <item>Waist Bag</item>
+        <item>Back Bag</item>
+    </array>
+
+    <array name="SensorHZ">
+        <item>256HZ</item>
+        <item>128HZ</item>
+        <item>64HZ</item>
+        <item>32HZ</item>
+        <item>16HZ</item>
+        <item>8HZ</item>
+    </array>
+
+    <array name="Features">
+        <item>最小值</item>
+        <item>最大值</item>
+        <item>过均值率</item>
+        <item>标准差</item>
+        <item>谱峰位置</item>
+        <item>频域 能量</item>
+        <item>熵</item>
+        <item>质心</item>
+        <item>平均值</item>
+        <item>均方根平均值</item>
+        <item>向量幅值面积</item>
+        <item>四分卫距</item>
+        <item>绝对平均差</item>
+        <item>时域 能量</item>
+        <item>频域 标准备差</item>
+        <item>频域平均值</item>
+        <item>频域 偏度</item>
+        <item>频域 峰度</item>
+        <item>中位数</item>
+    </array>
+</resources>

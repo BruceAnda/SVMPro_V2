@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- Tab Bg Color -->
+    <color name="tabBg">#f7f7f7</color>
+    <color name="tabBgStroke">#eee</color>
+
+    <color name="tabTextNormal">#B5B5B5</color>
+    <color name="tabTextChecked">#00FF00</color>
+</resources>

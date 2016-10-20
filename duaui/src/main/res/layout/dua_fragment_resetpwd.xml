@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.lovearthstudio.duaui.base.PasswordEdit
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:id="@+id/dua_et_password"/>
+    <com.lovearthstudio.duaui.base.PasswordEdit
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:id="@+id/dua_et_repwd"/>
+    <Button
+        android:id="@+id/dua_register_button_next_step"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_bg_light_green"
+        android:text="@string/dua_button_next_step"
+        android:textStyle="bold" />
+
+</LinearLayout>

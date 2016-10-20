@@ -1,0 +1,109 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/polished">
+
+    <LinearLayout
+        android:id="@+id/dua_login_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.lovearthstudio.intlphoneinput.IntlPhoneInput
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dua_login_input_phone" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:textColor="@color/label_text_color"
+                android:text="密码"
+                android:textAlignment="textEnd"
+                android:gravity="center_vertical|end"
+                android:paddingRight="10sp"
+                android:textSize="@dimen/label_text_size" />
+
+
+            <!--android:background="@null" 去掉边框-->
+            <EditText
+                android:id="@+id/dua_login_input_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="@string/dua_prompt_pwd"
+                android:textColor="@color/hint_text_color"
+
+                android:imeActionId="@+id/dua_action_ime_login"
+                android:imeActionLabel="@string/dua_action_sign_in"
+                android:imeOptions="actionUnspecified"
+                android:inputType="textPassword"
+                android:gravity="center_vertical"
+                android:paddingLeft="10sp"
+                android:textSize="@dimen/input_text_size"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/border_line_color" />
+
+        <com.lovearthstudio.duaui.base.ProgressButton
+            android:id="@+id/dua_login_button_sign_in"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:textSize="@dimen/label_text_size"
+                android:gravity="center"
+                android:text="@string/dua_action_forget_pwd"
+                android:textColor="@color/label_text_color"
+                android:clickable="true"
+                android:id="@+id/dua_login_button_forget_pwd"/>
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:textSize="@dimen/label_text_size"
+                android:text="@string/dua_action_sign_up"
+                android:textColor="@color/label_text_color"
+                android:clickable="true"
+                android:id="@+id/dua_login_button_sign_up"/>
+
+        </RelativeLayout>
+
+
+        <!--位于最底层布局顶部的“LOGO”和“微信”放在一个LinearLayout里，设置水平布局；-->
+        <!--<LinearLayout android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:paddingTop="5dp"-->
+            <!--android:gravity="center" >-->
+            <!--<ImageView android:layout_width="100dp"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:src="@drawable/xdualogo" />-->
+        <!--</LinearLayout>-->
+    </LinearLayout>
+</LinearLayout>

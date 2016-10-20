@@ -1,0 +1,32 @@
+<resources>
+    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/AnimFade</item>
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+
+        <item name="toolbarStyle">@style/ToolbarNoSpace</item>
+
+    </style>
+
+    <!-- 淡入淡出效果 -->
+    <style name="AnimFade" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/hold</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <!-- 无标题、全屏、淡入淡出  -->
+    <style name="Fullscreen_Notitle_Fade" parent="android:Theme.NoTitleBar.Fullscreen">
+        <item name="android:windowAnimationStyle">@style/AnimFade</item>
+    </style>
+
+
+    <style name="ToolbarNoSpace" parent="Widget.AppCompat.Toolbar">
+        <!-- 设置该属性解决空白部分,Android默认离左右间距16dp-->
+        <item name="contentInsetStart">16dp</item>
+        <item name="contentInsetEnd">16dp</item>
+        <item name="background">@android:color/white</item>
+    </style>
+</resources>

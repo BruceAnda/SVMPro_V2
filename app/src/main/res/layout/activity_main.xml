@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="smv.lovearthstudio.com.svmpro_v2.activity.main.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RadioGroup
+        android:id="@+id/bottom_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tab_bg"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/tab_samping"
+            style="@style/TabBottomStyle"
+            android:drawableTop="@drawable/tab_samping_selector"
+            android:text="@string/simping" />
+
+        <RadioButton
+            android:id="@+id/tab_train"
+            style="@style/TabBottomStyle"
+            android:drawableTop="@drawable/tab_train_selector"
+            android:text="@string/train" />
+
+        <RadioButton
+            android:id="@+id/tab_forecast"
+            style="@style/TabBottomStyle"
+            android:drawableTop="@drawable/tab_predict_selector"
+            android:text="@string/forecast" />
+
+        <RadioButton
+            android:id="@+id/tab_setting"
+            style="@style/TabBottomStyle"
+            android:drawableTop="@drawable/tab_setting_selector"
+            android:text="@string/setting" />
+    </RadioGroup>
+</LinearLayout>
