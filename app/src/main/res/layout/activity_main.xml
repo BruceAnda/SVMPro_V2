@@ -7,12 +7,14 @@
     android:orientation="vertical"
     tools:context="smv.lovearthstudio.com.svmpro_v2.activity.main.MainActivity">
 
+    <!-- 内容区域 -->
     <FrameLayout
         android:id="@+id/fl_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+    <!-- 底部导航 -->
     <RadioGroup
         android:id="@+id/bottom_tabs"
         android:layout_width="match_parent"
