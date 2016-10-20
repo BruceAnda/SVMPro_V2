@@ -8,6 +8,7 @@
     <color name="tabBg">#f7f7f7</color>
     <color name="tabBgStroke">#eee</color>
 
+    <!-- Tab Text Color -->
     <color name="tabTextNormal">#B5B5B5</color>
     <color name="tabTextChecked">#00FF00</color>
 </resources>

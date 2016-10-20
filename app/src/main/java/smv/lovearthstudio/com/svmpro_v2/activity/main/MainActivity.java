@@ -30,6 +30,9 @@ import static smv.lovearthstudio.com.svmpro_v2.util.Util.TRAIN_FILE_DIR;
 import static smv.lovearthstudio.com.svmpro_v2.util.Util.selectFeatures;
 import static smv.lovearthstudio.com.svmpro_v2.util.Util.sensit;
 
+/**
+ * 整个程序的主界面逻辑
+ */
 public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
 
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 检查权限
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             // Here, thisActivity is the current activity
             if (ContextCompat.checkSelfPermission(this,
@@ -201,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                         .commit();
                 break;
             case R.id.tab_forecast:     // tab_predict_normal
-                setTitle(getString(R.string.forecast));
+                setTitle(getString(R.string.predict));
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fl_content, new PredictFragment())

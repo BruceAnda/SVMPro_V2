@@ -39,6 +39,7 @@
         <item name="android:background">#FF909090</item>
     </style>
 
+    <!-- 播放按钮样式 -->
     <style name="Start">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

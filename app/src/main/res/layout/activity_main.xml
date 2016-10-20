@@ -37,7 +37,7 @@
             android:id="@+id/tab_forecast"
             style="@style/TabBottomStyle"
             android:drawableTop="@drawable/tab_predict_selector"
-            android:text="@string/forecast" />
+            android:text="@string/predict" />
 
         <RadioButton
             android:id="@+id/tab_setting"
