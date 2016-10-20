@@ -61,8 +61,8 @@ public class SplashActivity extends Activity {
                  * 动画播放结束后处理逻辑
                  * 进入Guide或main
                  */
-                   selectPager();
-                //enterMain();
+                // selectPager();
+                enterMain();
             }
 
             @Override
@@ -80,6 +80,7 @@ public class SplashActivity extends Activity {
         } else {
             startActivityForResult(new Intent(this, DuaActivityLogin.class), 10086);
         }
+        finish();
     }
 
     private void enterMain() {
