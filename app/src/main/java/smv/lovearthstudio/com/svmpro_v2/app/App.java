@@ -5,14 +5,26 @@ import android.app.Application;
 import com.lovearthstudio.duasdk.Dua;
 
 /**
- * Created by zhaoliang on 16/10/20.
+ * Application
+ *
+ * @author zhaoliang
+ *         create at 16/11/10 上午10:07
  */
-
 public class App extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
+        initDua();
+    }
+
+    /**
+     * 初始化Dua，登录模块
+     *
+     * @author zhaoliang
+     * create at 16/11/10 上午10:07
+     */
+    private void initDua() {
         Dua.init(this);
     }
 }

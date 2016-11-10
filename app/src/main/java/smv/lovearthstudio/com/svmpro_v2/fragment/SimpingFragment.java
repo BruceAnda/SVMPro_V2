@@ -38,7 +38,10 @@ import static smv.lovearthstudio.com.svmpro_v2.util.Util.dataToFeatures;
 import static smv.lovearthstudio.com.svmpro_v2.util.Util.sensit;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 采集数据界面
+ *
+ * @author zhaoliang
+ *         create at 16/11/10 下午2:08
  */
 public class SimpingFragment extends Fragment implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, SensorEventListener {
 
