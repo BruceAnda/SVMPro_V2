@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -24,6 +23,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import libsvm.svm;
 import libsvm.svm_model;
 import libsvm.svm_node;
@@ -31,6 +33,7 @@ import smv.lovearthstudio.com.svmpro_v2.R;
 import smv.lovearthstudio.com.svmpro_v2.activity.other.filenamelistactivity.ModelFileListActivity;
 import smv.lovearthstudio.com.svmpro_v2.activity.other.filenamelistactivity.RangeFileListActivity;
 import smv.lovearthstudio.com.svmpro_v2.util.Features;
+import smv.lovearthstudio.com.svmpro_v2.widget.Item;
 
 import static java.io.File.separator;
 import static smv.lovearthstudio.com.svmpro_v2.util.Util.CODE_REQUST_MODEL_FILE_LIST;
@@ -42,15 +45,49 @@ import static smv.lovearthstudio.com.svmpro_v2.util.Util.dataToFeatures;
 import static smv.lovearthstudio.com.svmpro_v2.util.Util.sensit;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 预测页面
+ *
+ * @author zhaoliang
+ *         create at 2016/11/11 下午2:18
  */
-public class PredictFragment extends Fragment implements View.OnClickListener, SensorEventListener {
+public class PredictFragment extends Fragment implements SensorEventListener {
 
-    TextView mTvSelectModel, mTvSelectRange, mTvAction, mTvPosition, mTvShowAcc;
-    ImageView ivStartPredict;
-    private View view;
     private String mModelFileName = "model";
     private String mRangeFileName = "range";
+
+    @BindView(R.id.predict_item_model_file_name)
+    Item mItemModelFileName;
+    @BindView(R.id.predict_item_range_file_name)
+    Item mItemRangeFileName;
+    @BindView(R.id.predict_item_action)
+    Item mItemAction;
+    @BindView(R.id.predict_item_position)
+    Item mItemPosition;
+    @BindView(R.id.predict_item_acc)
+    Item mItemAcc;
+    @BindView(R.id.iv_start_predict)
+    ImageView mIvStartPredict;
+
+    @OnClick({R.id.predict_item_model_file_name, R.id.predict_item_range_file_name, R.id.iv_start_predict})
+    public void click(View view) {
+        switch (view.getId()) {
+            case R.id.predict_item_model_file_name:
+                startActivityForResult(new Intent(getActivity(), ModelFileListActivity.class), CODE_REQUST_MODEL_FILE_LIST);
+                break;
+            case R.id.predict_item_range_file_name:
+                startActivityForResult(new Intent(getActivity(), RangeFileListActivity.class), CODE_REQUST_RANGE_FILE_LIST);
+                break;
+            case R.id.iv_start_predict:
+                isStartPredict = !isStartPredict;
+                if (isStartPredict) {
+                    startPredict();
+                } else {
+                    stopPredict();
+                }
+                break;
+
+        }
+    }
 
     /**
      * 传感器管理器类
@@ -68,14 +105,13 @@ public class PredictFragment extends Fragment implements View.OnClickListener, S
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_predict, container, false);
+        View view = inflater.inflate(R.layout.fragment_predict, container, false);
+        ButterKnife.bind(this, view);
         init();
         return view;
     }
 
     private void init() {
-        findView();
-        setListener();
         mSensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         readActionAndPostionArr();
     }
@@ -85,48 +121,14 @@ public class PredictFragment extends Fragment implements View.OnClickListener, S
         mPositionArr = getResources().getStringArray(R.array.Positions);
     }
 
-    private void findView() {
-        mTvSelectModel = (TextView) view.findViewById(R.id.tv_select_model_file_name);
-        mTvSelectRange = (TextView) view.findViewById(R.id.tv_select_range_file_name);
-        mTvAction = (TextView) view.findViewById(R.id.tv_show_action);
-        mTvPosition = (TextView) view.findViewById(R.id.tv_show_position);
-        mTvShowAcc = (TextView) view.findViewById(R.id.tv_show_acc);
-        ivStartPredict = (ImageView) view.findViewById(R.id.iv_start_predict);
-    }
-
-    private void setListener() {
-        mTvSelectModel.setOnClickListener(this);
-        mTvSelectRange.setOnClickListener(this);
-        ivStartPredict.setOnClickListener(this);
-    }
-
     boolean isStartPredict;
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.tv_select_model_file_name:
-                startActivityForResult(new Intent(getActivity(), ModelFileListActivity.class), CODE_REQUST_MODEL_FILE_LIST);
-                break;
-            case R.id.tv_select_range_file_name:
-                startActivityForResult(new Intent(getActivity(), RangeFileListActivity.class), CODE_REQUST_RANGE_FILE_LIST);
-                break;
-            case R.id.iv_start_predict:
-                isStartPredict = !isStartPredict;
-                if (isStartPredict) {
-                    startPredict();
-                } else {
-                    stopPredict();
-                }
-                break;
-        }
-    }
 
     /**
      * 开始预测
      */
     private void startPredict() {
-        ivStartPredict.setImageResource(R.mipmap.stop);
+        mIvStartPredict.setImageResource(R.mipmap.stop);
         mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), (int) (1000 * 1000 / Double.parseDouble(sensit.replace("HZ", ""))));
         readRange();
         readModel();
@@ -188,7 +190,7 @@ public class PredictFragment extends Fragment implements View.OnClickListener, S
      * 停止预测
      */
     private void stopPredict() {
-        ivStartPredict.setImageResource(R.mipmap.play);
+        mIvStartPredict.setImageResource(R.mipmap.play);
         mSensorManager.unregisterListener(this);
     }
 
@@ -197,14 +199,14 @@ public class PredictFragment extends Fragment implements View.OnClickListener, S
         if (requestCode == CODE_REQUST_MODEL_FILE_LIST && resultCode == CODE_RESULT_OK) {
             String modelFileName = data.getStringExtra("modelFileName");
             if (!TextUtils.isEmpty(modelFileName)) {
-                mTvSelectModel.setText("model文件名称:" + modelFileName);
+                mItemModelFileName.setText("model文件名称:" + modelFileName);
                 mModelFileName = modelFileName;
             }
         }
         if (requestCode == CODE_REQUST_RANGE_FILE_LIST && resultCode == CODE_RESULT_OK) {
             String rangeFileName = data.getStringExtra("rangeFileName");
             if (!TextUtils.isEmpty(rangeFileName)) {
-                mTvSelectRange.setText("归一化文件名称:" + rangeFileName);
+                mItemRangeFileName.setText("归一化文件名称:" + rangeFileName);
                 mRangeFileName = rangeFileName;
             }
         }
@@ -220,14 +222,14 @@ public class PredictFragment extends Fragment implements View.OnClickListener, S
         float y = event.values[1];
         float z = event.values[2];
         double a = Math.sqrt(x * x + y * y + z * z);
-        mTvShowAcc.setText("加速度:" + a);
+        mItemAcc.setText("加速度:" + a);
         if (currrenIndex >= num) {
             String[] features = dataToFeatures(data, (int) (1000 * 1000 / Double.parseDouble(sensit.replace("HZ", ""))));
             double code = predictUnscaleData(features);
             int act = (int) (code / 100);
             int postion = (int) (code - act * 100);
-            mTvAction.setText(mActionsArr[act - 1]);
-            mTvPosition.setText(mPositionArr[postion - 1]);
+            mItemAction.setText("action:" + mActionsArr[act - 1]);
+            mItemPosition.setText("position:" + mPositionArr[postion - 1]);
             currrenIndex = 0;
         }
         data[currrenIndex++] = a;

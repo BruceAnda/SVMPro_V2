@@ -1,44 +1,63 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/windowBackgound"
     android:orientation="vertical"
+    android:paddingTop="20dp"
     tools:context="smv.lovearthstudio.com.svmpro_v2.fragment.PredictFragment">
 
-    <TextView
-        android:id="@+id/tv_select_model_file_name"
-        style="@style/TvSelectStyle"
-        android:text="model文件名称:model" />
-
-    <View style="@style/Line" />
-
-    <TextView
-        android:id="@+id/tv_select_range_file_name"
-        style="@style/TvSelectStyle"
-        android:text="归一化文件名称:range" />
-
-    <View style="@style/Line" />
-
-    <TextView
-        android:id="@+id/tv_show_action"
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/predict_item_model_file_name"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center_vertical" />
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:text="模型文件名称:model" />
 
     <View style="@style/Line" />
 
-    <TextView
-        android:id="@+id/tv_show_position"
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/predict_item_range_file_name"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center_vertical" />
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:text="归一化文件名称:range" />
 
     <View style="@style/Line" />
 
-    <TextView
-        android:id="@+id/tv_show_acc"
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/predict_item_action"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:show_array="false"
+        app:text="action:" />
+
+    <View style="@style/Line" />
+
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/predict_item_position"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:show_array="false"
+        app:text="position:" />
+
+    <View style="@style/Line" />
+
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/predict_item_acc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:show_array="false"
+        app:text="加速度:" />
+
+    <View
+        style="@style/Line"
+        android:layout_marginLeft="0dp" />
+
 
     <ImageView
         android:id="@+id/iv_start_predict"

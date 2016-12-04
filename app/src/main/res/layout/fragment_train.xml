@@ -1,42 +1,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/windowBackgound"
     android:orientation="vertical"
+    android:paddingTop="20dp"
     tools:context="smv.lovearthstudio.com.svmpro_v2.fragment.TrainFragment">
 
-    <TextView
-        android:id="@+id/tv_select_train_file_name"
-        style="@style/TvSelectStyle"
-        android:text="样本文件名称:train" />
-
-    <View style="@style/Line" />
-
-    <TextView
-        android:id="@+id/tv_select_range_file_name"
-        style="@style/TvSelectStyle"
-        android:text="归一化文件名称:range" />
-
-    <View style="@style/Line" />
-
-    <TextView
-        android:id="@+id/tv_select_sacle_file_name"
-        style="@style/TvSelectStyle"
-        android:text="归一化后的样本文件名称:scale" />
-
-    <View style="@style/Line" />
-
-    <TextView
-        android:id="@+id/tv_select_model_file_name"
-        style="@style/TvSelectStyle"
-        android:text="模型文件名称:model" />
-
-    <View style="@style/Line" />
-
-    <TextView
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/train_item_train_file_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_accuracy"/>
+        app:icon="@mipmap/icon1"
+        app:text="样本文件名称:train" />
+
+    <View style="@style/Line" />
+
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/train_item_range_file_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:text="归一化文件名称:range" />
+
+    <View style="@style/Line" />
+
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/train_item_scale_file_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:text="归一化后的样本文件名称:scale" />
+
+    <View style="@style/Line" />
+
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/train_item_model_file_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:text="模型文件名称:model" />
+
+    <View style="@style/Line" />
+
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/train_item_accuracy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:show_array="false"
+        app:text="模型精度:未知" />
+
+    <View
+        style="@style/Line"
+        android:layout_marginLeft="0dp" />
 
     <ImageView
         android:id="@+id/iv_train_start"

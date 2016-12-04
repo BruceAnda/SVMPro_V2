@@ -8,8 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -20,6 +18,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import smv.lovearthstudio.com.svmpro_v2.R;
 import smv.lovearthstudio.com.svmpro_v2.activity.other.addfilenameactivity.ModelFileNameActivity;
 import smv.lovearthstudio.com.svmpro_v2.activity.other.addfilenameactivity.RangeFileNameActivity;
@@ -28,6 +29,7 @@ import smv.lovearthstudio.com.svmpro_v2.activity.other.filenamelistactivity.Trai
 import smv.lovearthstudio.com.svmpro_v2.svmlib.svm_predict;
 import smv.lovearthstudio.com.svmpro_v2.svmlib.svm_scale;
 import smv.lovearthstudio.com.svmpro_v2.svmlib.svm_train;
+import smv.lovearthstudio.com.svmpro_v2.widget.Item;
 
 import static java.io.File.separator;
 import static smv.lovearthstudio.com.svmpro_v2.util.Util.CODE_REQUST_MODEL_FILE_NAME;
@@ -42,13 +44,13 @@ import static smv.lovearthstudio.com.svmpro_v2.util.Util.SCALE_FILE_DIR;
 import static smv.lovearthstudio.com.svmpro_v2.util.Util.TRAIN_FILE_DIR;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 训练页面
+ *
+ * @author zhaoliang
+ *         create at 2016/11/11 下午2:18
  */
-public class TrainFragment extends Fragment implements View.OnClickListener {
+public class TrainFragment extends Fragment {
 
-    private View view;
-    private TextView mTvSelectTrainFile, mTvSelectRangeFile, mTvSelectSacleFile, mTvSelectModelFile, mTvAccuracy;
-    private ImageView mIvTrainStart;
     private String trainFileName = "train";
     private String rangeFileName = "range";
     private String scaleFileName = "scale";
@@ -57,56 +59,30 @@ public class TrainFragment extends Fragment implements View.OnClickListener {
     private String modelTrainInfo = "modelTrainInfo";
     private String prdictAccuracy = "prdictAccuracy";
 
-    public TrainFragment() {
-        // Required empty public constructor
-    }
+    @BindView(R.id.train_item_train_file_name)
+    Item mItemTrainFileName;
+    @BindView(R.id.train_item_range_file_name)
+    Item mItemRangeFileName;
+    @BindView(R.id.train_item_scale_file_name)
+    Item mItemScaleFileName;
+    @BindView(R.id.train_item_model_file_name)
+    Item mItemModelFileName;
+    @BindView(R.id.train_item_accuracy)
+    Item mItemAccuracyFileName;
 
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_train, container, false);
-        init();
-        return view;
-    }
-
-    private void init() {
-        findView();
-
-        setListener();
-    }
-
-    private void findView() {
-        mTvSelectTrainFile = (TextView) view.findViewById(R.id.tv_select_train_file_name);
-        mTvSelectRangeFile = (TextView) view.findViewById(R.id.tv_select_range_file_name);
-        mTvSelectSacleFile = (TextView) view.findViewById(R.id.tv_select_sacle_file_name);
-        mTvSelectModelFile = (TextView) view.findViewById(R.id.tv_select_model_file_name);
-        mTvAccuracy = (TextView) view.findViewById(R.id.tv_accuracy);
-        mIvTrainStart = (ImageView) view.findViewById(R.id.iv_train_start);
-    }
-
-    private void setListener() {
-        mTvSelectTrainFile.setOnClickListener(this);
-        mTvSelectRangeFile.setOnClickListener(this);
-        mTvSelectSacleFile.setOnClickListener(this);
-        mTvSelectModelFile.setOnClickListener(this);
-        mIvTrainStart.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.tv_select_train_file_name:
+    @OnClick({R.id.train_item_train_file_name, R.id.train_item_range_file_name, R.id.train_item_scale_file_name, R.id.train_item_model_file_name, R.id.iv_train_start})
+    public void click(View view) {
+        switch (view.getId()) {
+            case R.id.train_item_train_file_name:
                 startActivityForResult(new Intent(getActivity(), TrainFileListActivity.class), CODE_REQUST_TRAIN_FILE_NAME);
                 break;
-            case R.id.tv_select_range_file_name:
+            case R.id.train_item_range_file_name:
                 startActivityForResult(new Intent(getActivity(), RangeFileNameActivity.class), CODE_REQUST_RANGE_FILE_NAME);
                 break;
-            case R.id.tv_select_sacle_file_name:
+            case R.id.train_item_scale_file_name:
                 startActivityForResult(new Intent(getActivity(), ScaleFileNameActivity.class), CODE_REQUST_SCALE_FILE_NAME);
                 break;
-            case R.id.tv_select_model_file_name:
+            case R.id.train_item_model_file_name:
                 startActivityForResult(new Intent(getActivity(), ModelFileNameActivity.class), CODE_REQUST_MODEL_FILE_NAME);
                 break;
             case R.id.iv_train_start:
@@ -115,23 +91,37 @@ public class TrainFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+
+    public TrainFragment() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_train, container, false);
+        ButterKnife.bind(this, view);
+        return view;
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CODE_REQUST_TRAIN_FILE_NAME && resultCode == CODE_RESULT_OK) {
             trainFileName = data.getStringExtra("trainFileName");
-            mTvSelectTrainFile.setText("样本文件名称:" + trainFileName);
+            mItemTrainFileName.setText("样本文件名称:" + trainFileName);
         }
         if (requestCode == CODE_REQUST_RANGE_FILE_NAME && resultCode == CODE_RESULT_OK) {
             rangeFileName = data.getStringExtra("rangeFileName");
-            mTvSelectRangeFile.setText("归一化文件名称:" + rangeFileName);
+            mItemRangeFileName.setText("归一化文件名称:" + rangeFileName);
         }
         if (requestCode == CODE_REQUST_SCALE_FILE_NAME && resultCode == CODE_RESULT_OK) {
             scaleFileName = data.getStringExtra("scaleFileName");
-            mTvSelectSacleFile.setText("归一化后的样本文件名称:" + scaleFileName);
+            mItemScaleFileName.setText("归一化后的样本文件名称:" + scaleFileName);
         }
         if (requestCode == CODE_REQUST_MODEL_FILE_NAME && resultCode == CODE_RESULT_OK) {
             modelFileName = data.getStringExtra("modelFileName");
-            mTvSelectModelFile.setText("模型文件名称:" + modelFileName);
+            mItemModelFileName.setText("模型文件名称:" + modelFileName);
         }
     }
 
@@ -166,7 +156,7 @@ public class TrainFragment extends Fragment implements View.OnClickListener {
             try {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(PREDICT_FILE_DIR + separator + prdictAccuracy)));
                 String readLine = reader.readLine();
-                mTvAccuracy.setText(readLine);
+                mItemAccuracyFileName.setText(readLine);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {

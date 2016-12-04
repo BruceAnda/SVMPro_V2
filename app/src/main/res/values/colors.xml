@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="windowBackgound">#05000000</color>
+
     <!-- Tab Bg Color -->
     <color name="tabBg">#f7f7f7</color>
     <color name="tabBgStroke">#eee</color>

@@ -6,7 +6,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
     </style>
 
     <!-- tab的样式 -->
@@ -36,7 +35,8 @@
     <style name="Line">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.2dp</item>
-        <item name="android:background">#FF909090</item>
+        <item name="android:background">#77000000</item>
+        <item name="android:layout_marginLeft">14dp</item>
     </style>
 
     <!-- 播放按钮样式 -->

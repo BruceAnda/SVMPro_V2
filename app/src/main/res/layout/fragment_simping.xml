@@ -1,55 +1,89 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
+    android:background="@color/windowBackgound"
     android:orientation="vertical"
+    android:paddingTop="20dp"
     tools:context="smv.lovearthstudio.com.svmpro_v2.fragment.SimpingFragment">
 
-    <TextView
-        android:id="@+id/tv_simple_action"
-        style="@style/TvSelectStyle"
-        android:text="action:Unknown" />
-
-    <View style="@style/Line" />
-
-    <TextView
-        android:id="@+id/tv_simple_position"
-        style="@style/TvSelectStyle"
-        android:text="postion:Unknown" />
-
-    <View style="@style/Line" />
-
-    <TextView
-        android:id="@+id/tv_simple_train"
-        style="@style/TvSelectStyle"
-        android:text="样本文件名称:train" />
-
-    <View style="@style/Line" />
-
-    <TextView
-        android:id="@+id/tv_simple_num"
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/simping_item_action"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:paddingLeft="10dp"
-        android:text="拖动设置采样数量:当前100" />
+        app:icon="@mipmap/icon1"
+        app:text="action:unkown" />
+
+    <View style="@style/Line" />
+
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/simping_item_position"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:text="position:unkown" />
+
+    <View style="@style/Line" />
+
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/simping_item_train_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:text="样本文件名称:train" />
+
+    <View style="@style/Line" />
+
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/simping_item_lable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:show_array="false"
+        app:text="当前label:101" />
+
+    <View style="@style/Line" />
+
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/simping_item_acu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:show_array="false"
+        app:text="加速度:未知" />
+
+    <View style="@style/Line" />
+
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/simping_iten_current_train_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:show_array="false"
+        app:text="当前采样数量:0" />
+
+    <View style="@style/Line" />
+
+    <smv.lovearthstudio.com.svmpro_v2.widget.Item
+        android:id="@+id/simping_item_total_train_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@mipmap/icon1"
+        app:show_array="false"
+        app:text="拖动设置采样数量:当前100" />
+
+    <View
+        style="@style/Line"
+        android:layout_marginLeft="0dp" />
 
     <SeekBar
         android:id="@+id/sb_simple_num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:max="100" />
-
-    <TextView
-        android:id="@+id/tv_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/tv_train_num"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <ImageView
         android:id="@+id/iv_simple_start"
