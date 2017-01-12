@@ -23,10 +23,12 @@ import java.io.RandomAccessFile;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.realm.Realm;
 import smv.lovearthstudio.com.svmpro_v2.R;
 import smv.lovearthstudio.com.svmpro_v2.activity.other.actionandpositionlist.ActionListActivity;
 import smv.lovearthstudio.com.svmpro_v2.activity.other.actionandpositionlist.PositionListActivity;
 import smv.lovearthstudio.com.svmpro_v2.activity.other.addfilenameactivity.TrainFileNameActivity;
+import smv.lovearthstudio.com.svmpro_v2.model.Training;
 import smv.lovearthstudio.com.svmpro_v2.widget.Item;
 
 import static java.io.File.separator;
@@ -134,6 +136,8 @@ public class SimpingFragment extends Fragment implements SeekBar.OnSeekBarChange
         mSensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
 
         prepareFile();
+
+        realm = Realm.getDefaultInstance();
     }
 
     /**
@@ -231,6 +235,7 @@ public class SimpingFragment extends Fragment implements SeekBar.OnSeekBarChange
         } else {
             if (currrenIndex >= num) {
                 String[] features = dataToFeatures(data, (int) (1000 * 1000 / Double.parseDouble(sensit.replace("HZ", ""))));
+                saveToRealm(data);
                 saveToFile(features);
                 currrenIndex = 0;
                 mCurrenTrainNum++;
@@ -258,8 +263,30 @@ public class SimpingFragment extends Fragment implements SeekBar.OnSeekBarChange
         }
     }
 
+    private Realm realm;
+
+    private void saveToRealm(final double[] values) {
+        final StringBuilder stringBuilder = new StringBuilder();
+        for (double value : values) {
+            stringBuilder.append(value + " ");
+        }
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                Training training = realm.createObject(Training.class);
+                training.setValues(stringBuilder.toString());
+            }
+        });
+    }
+
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        realm.close();
     }
 }

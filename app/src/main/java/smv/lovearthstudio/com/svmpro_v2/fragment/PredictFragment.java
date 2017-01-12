@@ -235,6 +235,11 @@ public class PredictFragment extends Fragment implements SensorEventListener {
         data[currrenIndex++] = a;
     }
 
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
     /**
      * 预测没有归一化的数据
      *
@@ -255,10 +260,5 @@ public class PredictFragment extends Fragment implements SensorEventListener {
         double v = svm.svm_predict(mSvmModel, px);
         System.out.println("-------code:" + v);
         return v;
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
     }
 }

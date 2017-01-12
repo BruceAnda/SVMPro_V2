@@ -15,7 +15,10 @@ import android.widget.RadioGroup;
 
 import java.io.File;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import smv.lovearthstudio.com.svmpro_v2.R;
+import smv.lovearthstudio.com.svmpro_v2.fragment.FFTFragment;
 import smv.lovearthstudio.com.svmpro_v2.fragment.PredictFragment;
 import smv.lovearthstudio.com.svmpro_v2.fragment.SettingFragment;
 import smv.lovearthstudio.com.svmpro_v2.fragment.SimpingFragment;
@@ -36,6 +39,7 @@ import static smv.lovearthstudio.com.svmpro_v2.util.Util.sensit;
 public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
 
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
+    @BindView(R.id.bottom_tabs)
     RadioGroup mBottomTabs;
     private SharedPreferences mSharedPreferences;
 
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         // 检查权限
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -117,7 +122,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
      * 初始化操作
      */
     private void init() {
-        mBottomTabs = (RadioGroup) findViewById(R.id.bottom_tabs);
         mBottomTabs.setOnCheckedChangeListener(this);
 
         mBottomTabs.check(R.id.tab_samping);
@@ -209,6 +213,13 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fl_content, new PredictFragment())
+                        .commit();
+                break;
+            case R.id.tab_fft:
+                setTitle(getString(R.string.fft));
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fl_content, new FFTFragment())
                         .commit();
                 break;
             case R.id.tab_setting:      // tab_setting_normal

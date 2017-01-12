@@ -40,6 +40,12 @@
             android:text="@string/predict" />
 
         <RadioButton
+            android:id="@+id/tab_fft"
+            style="@style/TabBottomStyle"
+            android:drawableTop="@drawable/tab_predict_selector"
+            android:text="@string/fft" />
+
+        <RadioButton
             android:id="@+id/tab_setting"
             style="@style/TabBottomStyle"
             android:drawableTop="@drawable/tab_setting_selector"

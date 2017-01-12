@@ -5,6 +5,7 @@
     <string name="simping">采样</string>
     <string name="train">训练</string>
     <string name="predict">预测</string>
+    <string name="fft">观察</string>
     <string name="setting">设置</string>
 
     <!-- lable actions -->
@@ -80,4 +81,7 @@
         <item>频域 峰度</item>
         <item>中位数</item>
     </array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
